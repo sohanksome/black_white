@@ -17,7 +17,14 @@ def packing(things: list):
 
 def connect_server():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((HOST, PORT))
+    s.settimeout(5)  # Set a timeout for 5 seconds
+    try:
+        s.connect((HOST, PORT))
+    except socket.timeout:
+        print("Connection timed out!")
+        s.settimeout(5)
+        input('press enter to close this window')
+        return None
     return s
 
 def register_name(name, mode, s):

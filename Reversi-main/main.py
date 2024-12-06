@@ -123,7 +123,6 @@ def main():
                             agent1 = CVCAgent1("black")  # 1號電腦
                             agent2 = CVCAgent2("white")  # 2號電腦
 
-                        
                         game = GameLogic(agent1, agent2, screen)
                         pygame.time.delay(750)
                     elif 15 <= x and x <= 95 and 140 <= y and y <= 180:  # 按下PVC模式
@@ -135,7 +134,7 @@ def main():
                     elif pvc and 60 <= x and x <= 110 and 185 <= y and y <= 215:  # 在PVC模式下選擇白棋
                         chooseSide = "white"
                     elif 215 <= x and x <= 295 and 140 <= y and y <= 180:
-                        at_PVP = False
+                        at_PVP = True
                         s = connect_server()
                         status = "PVP"
 
